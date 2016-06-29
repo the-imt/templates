@@ -64,8 +64,7 @@ use JSON;
 
 Check pages and content
 
-There will need to be a change, the tested value in pageident will need to
-be derived from a version variable.  Refactoring never ends!
+Should probably clean this up but it is for testing not production so ...
 =cut
 
 
@@ -90,7 +89,6 @@ ActionReq:			login 					ActionReq1
 					logout					ActionReq2
 						
 ButtonProc:			search					Button6, Button1
-					newlist					Button2,14
 					adminpage				Button3
 					extras					Button4
 					cancel					Button15
