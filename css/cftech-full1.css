@@ -1,0 +1,870 @@
+/*
+
+Copyright (c) 2016, Colin Wass, CFTech.ca
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that
+the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the
+following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or
+promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+*/
+
+/*
+	Table of Contents
+	* 1.0 		Resets and Initial Sets
+	* 2.0 		Typography
+	* 3.0 		Elements
+	* 4.0		Forms
+	* 5.0		Navigation
+	* 6.0 		Content
+	* 7.0 		Widgets
+	* 8.0 		Utilities
+	* 9.0 		Media Print
+*/
+
+/*
+   1.0		Resets and Initial Sets
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+html {
+	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+
+*,
+*:before,
+*:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+	-webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+	-moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+	box-sizing:         border-box;
+}
+
+body {
+	background: ivory; /* Background for the site */
+	background: -webkit-linear-gradient(ivory, lightgray);
+	background: -o-linear-gradient(ivory, lightgray);
+	background: -moz-linear-gradient(ivory, lightgray);
+	background: linear-gradient(ivory, lightgray);
+	
+}
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+
+
+/*
+   2.0		Typography
+*/
+
+body,
+button,
+input,
+select,
+textarea {
+	color: black;
+	font-family: sans-serif;
+	line-height: 1.1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+h1,
+h2,
+h3,
+h4  {
+	 color:#870000;
+}
+
+p {
+	margin-bottom: 1.5em;
+	line-height: 150%;
+	display: block;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 1.5em;
+	line-height: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+}
+
+code,
+kbd,
+tt,
+var {
+	font: 1.5em Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+h1 {
+	font-size: 3em;
+	text-align: center;
+}
+
+a h1  {
+	
+	margin: 0.5em 0 0 0;
+	font-size: 2.5em;
+	text-align: left;
+
+}
+
+h2 {
+	font-size: 2.5em;
+	line-height: 2.8em;
+	padding: 1em 0;
+	margin-top: 0;
+	text-align: center;
+}
+
+h3 {
+	font-size: 1.2em;
+	padding: 0 0 1em 0;
+	text-align: center;
+}
+
+h4 {
+	font-size: 1.6em;
+	padding: 0 0 .5em 0;
+}
+
+/*
+   3.0		Elements
+*/
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+}
+
+figure {
+	margin: 0;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+th {
+	font-weight: bold;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+ul li a {
+	font-size: 1.75em;
+	line-height: 1.9em;
+	text-align: center;
+}
+
+label {
+
+	position: relative;
+	height: 3em;
+	float: right;
+	margin-top: 0;
+
+
+}
+
+label ul {
+	margin: 2px;
+	width: 100%;
+	list-style: none;
+
+}
+
+label ul li {
+	float: left;
+	width: 16%;
+	display: table-cell;
+}
+
+
+generic {
+
+	position: relative;
+	height: 3em;
+	background: #f0f0f0;
+	margin-top: 0;
+
+
+}
+
+generic ul {
+	margin: 2px;
+	width: 100%;
+	list-style: none;
+
+}
+
+generic ul li {
+	float: left;
+	width: 18%;
+}
+
+
+/*
+   4.0		Forms
+*/
+
+button {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-box-shadow:0px 0px 2px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0px 0px 2px rgba(0,0,0,0.4);
+
+	color:rgba(0,0,0,0.9);
+	text-shadow:1px 1px 0px rgba(255,255,255,0.8);
+	border:1px solid rgba(0,0,0,0.5);
+
+	background:-webkit-gradient(linear,0% 0%,0% 100%,from(rgba(255,255,255,1)),to(rgba(185,185,185,1)));
+	background:-moz-linear-gradient(top,rgba(255,255,255,1),rgba(185,185,185,1));
+	bottom: 0;
+
+}
+
+button:hover {
+	background:rgba(240,240,240,1);
+}
+
+button:active, button:focus {
+	background:-webkit-gradient(linear,0% 100%,0% 0%,from(rgba(255,255,255,1)),to(rgba(185,185,185,1)));
+	background:-moz-linear-gradient(bottom,rgba(255,255,255,1),rgba(185,185,185,1));
+}
+
+button:disabled {
+	color:rgba(0,0,0,0.4);
+	text-shadow:1px 1px 0px rgba(255,255,255,0.5);
+	background:rgba(220,220,220,1);
+}
+
+
+input[type="checkbox"],
+input[type="radio"] {
+	padding: 0; /* Addresses excess padding in IE8/9 */
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
+	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+	-moz-box-sizing:    content-box;
+	box-sizing:         content-box;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-box-shadow:0px 0px 2px rgba(0,0,0,0.4);
+	-webkit-box-shadow:0px 0px 2px rgba(0,0,0,0.4);
+	text-shadow:1px 1px 0px rgba(255,255,255,0.8);
+	border:1px solid rgba(0,0,0,0.5);
+    
+}
+
+input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+	-webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+	border: 0;
+	padding: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: #333333;
+	border: 1px solid #ccc;
+	
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+	padding: 3px;
+}
+
+textarea {
+	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+	padding-left: 3px;
+	vertical-align: top; /* Improves readability and alignment in all browsers */
+	width: 100%;
+}
+
+line	{
+	float: left;
+	width: 95%;
+	padding: .7em 0 .7em .5em;
+}
+
+/*
+   5.0		Navigation
+*/
+
+
+a {
+	font-size: 1em;
+	line-height: 1.1em;
+	padding: .5em 0;
+	color: darkred;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+a:visited {
+	color:#870000;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: midnightblue;
+}
+
+nav {
+
+	height: 2.75em;
+	background: #f0f0f0;
+	margin-top: 0;
+
+}
+
+nav ul {
+
+	width: 90%;
+
+}
+nav ul li {
+	float: left;
+	width: 15%;
+}
+
+nav ul li a {
+	display: inline;
+	width: 95%;
+	font-size: 1.15em;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
+}
+
+nav ul li a:hover {
+	color: #0000FF;
+}
+
+nav ul li.selected a {
+	color: #fff;
+}
+
+nav ul li.subscribe a {
+	margin-left: 22px;
+	padding-left: 33px;
+	text-align: left;
+	background: url("rss.png") left center no-repeat;
+}
+
+fieldset {
+	width: 95%;
+}
+
+fieldset p  {
+	clear: both;
+	padding: 3px;
+}
+
+button-area  {
+	width: 80%;
+	float: left;
+}
+
+/*
+   6.0		Content
+*/
+
+
+header, main, footer, aside-m, aside-b {
+	display: block;
+	clear: both;
+}
+
+banner-text {
+	
+	line-height: 125%;
+	font-size: 3em;
+	font-weight: bold;
+	color: blue;
+}
+
+footer  {
+
+	display: block;
+	width: 83%;
+	position: relative;
+	left: 7%;
+	border-style: outset;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius: 10px;
+	background: ghostwhite;
+}
+
+aside h4  {
+	text-align: center;
+}
+
+article {
+	
+	display: table-cell;
+	width: 72%;
+	float: right;
+	text-align: left;
+	background: ghostwhite;
+	font-size: 1.75em;
+	
+	border-style: outset;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    
+}
+
+.article-text  {
+	text-align:left;
+	font-size:1.3em;
+	line-height:1.3em;
+	
+}
+
+maintable  {
+	display: table;
+	width: 90%;
+	left: 7%;
+}
+
+tableframe  {
+	display: table;
+	width: 90%;
+	float: right;
+}
+
+tablerow  {
+	display: table-row;
+	
+}
+
+aside-b  {
+	display: table-cell;
+	width: 20%;
+	float: right;
+
+	background: ghostwhite;
+	font-size: 1.2em;
+	min-height: 43.8em;
+	border-style: outset;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+aside-m  {
+	display: none;
+}
+
+header {
+	font-size: 3.5em;
+	font-weight: bold;
+	color: maroon;	
+	line-height: 125%;
+}
+
+chunk  {
+	display: none;
+}
+
+/*
+   7.0		Widgets
+*/
+
+
+.widget {
+	margin: 0 0 1em;
+}
+
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
+}
+
+/* Search widget */
+.widget_search .search-submit {
+	display: none;
+}
+
+.widget-area  {
+	position: relative;
+	align: left;
+	float: right;
+	width: 20%;
+}
+
+/*
+   8.0		Utilities
+*/
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+/*
+   9.0		Media Print
+*/
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

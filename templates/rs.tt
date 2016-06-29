@@ -1,0 +1,27 @@
+	<H2>Inside</H2>
+						
+						<h4><a href="[% baseurl %]?page=news">News</a></h4>
+							<p>Some type of headline and attention grabbing blurb</p>
+							<p>You can probably expect to see notifications, and whatever.</p>
+						<h4><a href="[% baseurl %]">What you need to know</a></h4>
+							<p>Text Needed</p>
+							<p>There's a lot of space to occupy here
+							</p>
+							[% IF loggedin == "true" %]
+								<fieldset><button name="Button1" value="search">Search: </button><input-area><input type="search" name="searchtext"></input-area></fieldset>
+								<p>&nbsp;</p>
+								<p>Logged in as [% username %]</p>
+								<button name="Button3" value="adminpage">Admin</button>
+								<button name="Button4" value="extras">Extras</button>
+								<button name="ActionReq2" value="logout">Logout</button>
+							[% ELSE %]
+								
+								<fieldset><button name="Button6" value="search">Search: </button><input-area><input type="search" name="searchtext"></input-area></fieldset>
+								<p>&nbsp;</p>	
+								<formblock>
+									<p><button type="submit" name="ActionReq1" value="login">Login</button></p>
+									<fieldset>UserID: <input-area><input type="userid" name="userid" size="20"></input-area></fieldset>
+									<fieldset>Password: <input-area><input type="password" name="password" size="20"></input-area></fieldset>
+								</formblock>
+							[% END %]
+						

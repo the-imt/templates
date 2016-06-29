@@ -1,0 +1,65 @@
+<!-- html-lint elem-unknown: off, attr-unknown: off -->
+
+<HTML>
+    <head>
+        <title>Template1 Project</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet" media="screen and (min-width: 1080px)" href="[% baseurl %]css/cftech-full.css">
+		<link rel="stylesheet" media="screen and (max-device-width: 1080px)" href="[% baseurl %]css/cftech-mobile.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		
+		<script src="[% baseurl %]js/cftech.js" type="text/javascript" defer></script>
+	</head>
+	
+    <body>
+		
+		<header>
+			<h1><a href="[% baseurl %]">Template1</a></h1>
+			<h3>Doing Something</h3>
+		</header>    
+		<main>
+			
+				<section>
+					<form action="[% baseurl %]" method="post" name="template1.tt" id="addlistform">
+					<input type="hidden" name="pageident" value="0.01mainpanels">
+						<messagebox class="art1">
+						
+							<H2>Block First</H2>
+						
+							<p>Hi, [% username %]</p>
+						
+							
+							<p>&nbsp;</p>
+						
+						</messagebox>
+					
+						<messagebox class="art2">
+							<H2>Middle Stuff</H2>
+							[% IF error %]
+								<p><b>Whoa, Dude!  Error!</b></p>
+							[% END %]
+							
+							<h4>Reserved for future Use</h4>
+							
+						</messagebox>
+					
+						<messagebox class="art3">
+							[% INCLUDE 'templates/rs.tt' %]
+						</messagebox>
+					</form>
+				</section>
+				<footer>
+					<p>Copyright (c) 2016 Colin Wass, CFTech.ca.  All rights reserved.</p>
+				</footer>
+	
+			</main>
+
+		
+    </body>
+</html>
+
+
+
+

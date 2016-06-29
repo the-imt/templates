@@ -1,0 +1,51 @@
+<!-- html-lint elem-unknown: off, attr-unknown: off -->
+
+<HTML>
+    <head>
+        <title>CFTech</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet" media="screen and (min-width: 1080px)" href="http://cftech.ca/css/cftech-full.css">
+		<link rel="stylesheet" media="screen and (max-device-width: 1080px)" href="http://cftech.ca/css/cftech-mobile.css">
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="//cdn.ckeditor.com/4.5.8/standard/ckeditor.js"></script>
+		<script src="http://cftech.ca/js/cftech.js" type="text/javascript" defer></script>
+	</head>
+	
+    <body>
+		
+		<header>
+			<h1><a href="http://apache.ccsdc.net/">CFTech</a></h1>
+			<h3>Information Security and Privacy Management</h3>
+		</header>    
+
+		<main>
+			<input type="hidden" name="pageident" value="0.01news">
+				<section>
+					<messagebox class="art1">
+						<p>&nbsp;</p>
+						<strong>CFTech</strong> will eventualy provide selected bits from the Internet as dredged up by one of our bots.  For now, we're still working on getting everything working correctly.
+						<p>&nbsp;</p>
+						<a href="http://apache.ccsdc.net/cgi/cftech.pl">Return</a>
+					</messagebox>
+					
+					<messagebox class="art2">
+						[% INCLUDE 'templates/rs.tt' %]
+					</messagebox>
+					
+				</section>
+				<footer>
+					<p>Copyright (c) 2016 Colin Wass, CFTech.ca.  All rights reserved.</p>
+				</footer>
+	
+			</main>
+
+		
+    </body>
+</html>
+
+
+
+
